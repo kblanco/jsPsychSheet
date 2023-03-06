@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="jspsych/css/jspsych.css">
 
   <!-- jsPsychSheet library -->
-  <script src="https://brain2ai.github.io/jsPsychSheet/jspsychsheet.js"></script>
-  <link rel="stylesheet" href="https://brain2ai.github.io/jsPsychSheet/jspsychsheet.css">
+  <script src="https://github.com/kblanco/jsPsychSheet/jspsychsheet.js"></script>
+  <link rel="stylesheet" href="https://github.com/kblanco/jsPsychSheet/jspsychsheet.css">
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -107,14 +107,13 @@
   timeline.push(debrief_block);
 
   /* start the experiment */
-  jsPsych.init({
-    timeline: timeline,
-    show_progress_bar: true,
-    on_finish: function () {
-      url = "https://script.google.com/macros/s/AKfycbzWarG1igduvFgcS8noKcvJ_RCX_ajtlYJQ1cOrCpTFtCrlaFlqSv-Cg2JJDQciFs4ePA/exec";
-      jsPsychSheet.uploadData(url, jsPsych.data.get().csv())
-    }
-  });
+jsPsych.init({
+  timeline: timeline,
+  show_progress_bar: true,
+  on_finish: function() {
+      jsPsychSheet.uploadData(jsPsych.data.get().csv());
+  }
+});
 </script>
 
 </html>
